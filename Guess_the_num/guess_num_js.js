@@ -27,6 +27,13 @@ $(document).ready(function(){
 		var guess = $('input').val();
 		//alert("Is " + $('input').val()+" equal to "+ ans +"?");
 		$('.temp').html(process_temp(guess));
+		if(process_temp(guess)==="CORRECT"){
+			alert("GOOOOOAL");
+		}
+		if(lives<=0){
+			$('.temp').html("Out of Lives");
+			lives = 1;
+		}
 		if(!isNaN(guess)){
 			$( ".guess-list li:nth-child("+(6-lives)+")" ).html(guess + process_direction(guess));
 			}
@@ -43,6 +50,7 @@ $(document).ready(function(){
 		$(".hint").html("HINT");
 		$(".temp").html("Enter a guess and see how close you get!")
 		$(".guess-list").children().html("");
+		$('input').val('');
 		return $('.result').html("<p></p>");		
 	});	
 	$(".hint").on('click', function(){
