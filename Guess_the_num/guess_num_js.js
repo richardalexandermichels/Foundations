@@ -5,9 +5,9 @@ var l=0;
 $(document).ready(function(){
 	function process_temp(g){
 		var diff = Math.abs(ans - g);
-		if(!isNaN(g)){
-				return (diff == 0) ? "CORRECT": (diff <= 5) ? " Nope! but you are real HOT!" : (diff <= 10) ? "Nah but you are warming up":
-				(diff <= 15) ? "Uh-oh cooling" : "No way, you are dead COLD"
+		if(!isNaN(g) && g){
+				return (diff == 0) ? "CORRECT": (diff <= 5) ? "HOT" : (diff <= 10) ? "warm":
+				(diff <= 15) ? "cool" : "COLD"
 		}else{
 			return "not a number";
 		}	
@@ -28,13 +28,14 @@ $(document).ready(function(){
 		//alert("Is " + $('input').val()+" equal to "+ ans +"?");
 		$('.temp').html(process_temp(guess));
 		if(process_temp(guess)==="CORRECT"){
-			alert("GOOOOOAL");
+			$('.jumbotron').css("background-image", "url('https://www.evl.uic.edu/aej/526/pics/htwww4.jpg')");
+			$('.temp').css("background-color","white");
 		}
 		if(lives<=0){
 			$('.temp').html("Out of Lives");
 			lives = 1;
 		}
-		if(!isNaN(guess)){
+		if(!isNaN(guess) && guess){
 			$( ".guess-list li:nth-child("+(6-lives)+")" ).html(guess + process_direction(guess));
 			}
 	});
@@ -51,6 +52,8 @@ $(document).ready(function(){
 		$(".temp").html("Enter a guess and see how close you get!")
 		$(".guess-list").children().html("");
 		$('input').val('');
+		$('.jumbotron').css("background-image", "");;
+		$('.temp').css("background-color","");
 		return $('.result').html("<p></p>");		
 	});	
 	$(".hint").on('click', function(){

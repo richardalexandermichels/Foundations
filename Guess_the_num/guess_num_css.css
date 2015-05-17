@@ -1,6 +1,6 @@
 /* Space out content a bit */
 body {
-  background-color: Gainsboro;
+  /*background-color: Gainsboro;*/
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -47,6 +47,9 @@ body {
   height: 200px;
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 
