@@ -28,7 +28,7 @@ $(document).ready(function(){
 		//alert("Is " + $('input').val()+" equal to "+ ans +"?");
 		$('.temp').html(process_temp(guess));
 		if(process_temp(guess)==="CORRECT"){
-			$('.jumbotron').css("background-", "url('https://www.evl.uic.edu/aej/526/pics/htwww4.jpg')");
+			$('.jumbotron').css("background-image", "url('https://www.evl.uic.edu/aej/526/pics/htwww4.jpg')");
 			$('.temp').css("background-color","white");
 		}
 		if(lives<=0){
